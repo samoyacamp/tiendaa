@@ -1,0 +1,18 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Tienda;
+
+/**
+ *
+ * @author power
+ */
+public enum Puntuacion {
+    
+    MAL, REGULAR, BIEN, MUY_BIEN, EXCELENTE;
+    
+//    public static final String[] STRIGNS = Arrays.stream(Puntuacion.values());
+    
+}

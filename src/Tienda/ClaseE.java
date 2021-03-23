@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package Tienda;
 
 /**
  *
  * @author power
  */
-public class Electrodomestico {
-    
+public enum ClaseE {
+    A, B, C, D, E, F;
 }
