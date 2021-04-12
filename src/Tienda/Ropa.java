@@ -46,6 +46,9 @@ public class Ropa extends Articulo {
             this.setPrecio (((float)this.getPrecio()*0.8));
         }
     }
+    public String toStringFile(){
+    return color +","+ talla +","+super.getCodigo()+","+super.getNombre()+","+super.getPrecio()+","+super.getStock();
+    }
     
     
 }

@@ -1,0 +1,4 @@
+amarillo,S,0,0301,camiseta,15,50F,100
+naranja,S,0,0301,pantalon,15,50F,100
+rojo,S,0,0301,calcetas,15,50F,100
+verde,S,0,0301,calcetin,15,50F,100

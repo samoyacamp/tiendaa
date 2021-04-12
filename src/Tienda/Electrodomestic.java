@@ -4,7 +4,7 @@ package Tienda;
  *
  * @author power
  */
-public class Electrodomestic extends Electrodomestico{
+public class Electrodomestic {
     public Electrodomestic(){}
     
     private String etiquetado;

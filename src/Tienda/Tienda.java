@@ -5,6 +5,13 @@
  */
 package Tienda;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +21,7 @@ import java.util.Scanner;
  */
 public class Tienda {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner numeros = new Scanner(System.in);
         Scanner cadenas = new Scanner(System.in);
         Usuario user = new Usuario();
@@ -49,6 +56,12 @@ public class Tienda {
                     break;
                 case 4:
                     crearUsuario(user, cadenas);
+                case 5:darOpinion(user, catalogo, cadenas,numeros);
+                    break;
+                case 6: loadArticulosFromFile();
+                    break;
+                case 7: saveArticulosToFile();
+                    break;
                 case 0:
                     System.out.println("Muchas gracias por su compra.");
                     break;
@@ -223,5 +236,68 @@ public class Tienda {
         } while (!us.nombre(nombre));
         us.setNombre(nombre);
     }
+    
 
-}
+    public static void darOpinion(Usuario user, ArrayList<Articulo> catalogo, Scanner cadenas, Scanner numeros) {
+       File fichero = null;
+       FileReader lector = null;
+       BufferedReader buffer = null;
+       String[] nuevaRopa; 
+       try {
+           fichero = new File("articulo.txt");
+           lector = new FileReader(fichero);
+           buffer= new BufferedReader(lector);
+           String linea = null;
+           while ((linea = buffer.readLine()) !=null)
+           {
+               nuevaRopa = linea.split(",");
+               //TO DO cada linea creado un objeto ropa en cada articulo
+               //nuevaRopa[]
+               System.out.print(linea);
+               //Utilizar un Split para separar con comas la linea que sale por pantalla//
+           }
+           }
+       catch(FileNotFoundException fnfe){
+           fnfe.printStackTrace();
+       }
+       catch(IOException ioe){
+           ioe.printStackTrace();
+       }finally{
+           if(buffer!=null)
+               try{
+               buffer.close();
+               }catch (IOException ioe){
+                   ioe.printStackTrace();
+               }
+       }
+    }
+   
+
+    public static void loadArticulosFromFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void saveArticulosToFile() throws IOException {
+        FileWriter fichero = null;
+        PrintWriter escritor = null;
+        
+        try{
+            fichero=new FileWriter("articulo.txt");
+            escritor=new PrintWriter(fichero);
+            escritor.println("Esto es una linea del fichero");
+        }
+        catch(IOException ioe){
+            ioe.printStackTrace();
+        }finally{
+            if (fichero != null)
+                try{
+                    fichero.close();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                }
+        }
+            
+        }
+    }
+
+
